@@ -1,0 +1,71 @@
+/*
+ * style.css
+ *
+ * Distributed under WTFPL terms
+ *
+ *            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+ *                    Version 2, December 2004
+ *
+ * Copyright (C) 2017 Mathieu Gaborit (matael) <mathieu@matael.org>
+ *
+ * Everyone is permitted to copy and distribute verbatim or modified
+ * copies of this license document, and changing it is allowed as long
+ * as the name is changed.
+ *
+ *            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+ *   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+ *
+ *  0. You just DO WHAT THE FUCK YOU WANT TO.
+ *
+ */
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url(../fonts/opensans/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url(../fonts/opensans/OpenSans-Italic.ttf);
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url(../fonts/opensans/OpenSans-Bold.ttf);
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background: rgb(230,230,230); */
+  color: rgb(50,50,50);
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  color: rgb(40,40,40);
+}
+
+
+/* ===== Footer ===== */
+footer {
+  color: rgb(100,100,100);
+  font-size: 0.8em;
+  width: 30%;
+  text-align: center;
+  position: fixed;
+  left: 35%;
+  bottom: 0px;
+}
+
+footer a, footer a:visited, footer a:active {
+  color: rgb(100,100,100);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: rgb(100,100,100);
+  text-decoration: underline;
+}

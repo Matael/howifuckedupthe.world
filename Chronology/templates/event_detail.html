@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ object.name|capfirst }}<span class="subtitle"> by {{ object.who }} on the {{ object.date }}</span></h2>
+
+{{ description|linebreaks }}
+
+<a href={% url 'event#vote' object.id 'up' %}>Yeah, that was idiotic.</a>
+<a href={% url 'event#vote' object.id 'down' %}>That's actually not too bad</a>
+<a href={% url 'event#report' object.id %}>Report this entry</a>
+
+
+{% endblock %}
+

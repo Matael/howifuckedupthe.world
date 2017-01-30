@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load events_tags %}
+{% load static %}
+
+{% block extraHead %}
+  <link rel="stylesheet" type="text/css" href="{% static "css/timeline.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/admin_colors.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "css/jquery-ui.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% if message %}
+  <div id="message">
+    <h2>{{ message.title }}</h2>
+    {{ message.message|linebreaks }}
+  </div>
+{% endif %}
+
+<div class="add_event_form">
+  <form action='{% url 'event#add' %}' method='POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <input type="submit" value="Add event !"/>
+  </form>
+</div>
+
+
+<div id="timeline_container">
+<ul class="timeline">
+  {# <li> #}
+  {#   <div class="direction-r"> #}
+  {#     <div class="flag-wrapper"> #}
+  {#       <span class="flag"><a href="{% url 'event#add' %}"><i class="fa fa-plus" aria-hidden="true"></i> Add a event !</a></span> #}
+  {#     </div> #}
+  {#   </div> #}
+  {# </li> #}
+  {% for e in events %}
+    {% timeline_event e forloop.counter0 %}
+  {% empty %}
+  <li>
+      <div class="direction-r">
+        <div class="flag-wrapper">
+          <span class="flag">Erff.... Looks empty here.</span>
+        </div>
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+</div>
+{% endblock %}
+
+
+{% block extraEOP %}
+<script type="text/javascript" src="{% static 'js/jquery-1.12.4.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui.js' %}"></script>
+<script type="text/javascript">
+  var who_options = [ {% for o in who_options %}"{{ o|escapejs }}"{% if not forloop.last %},{% endif %}{% endfor %} ];
+  var function_options = [ {% for o in function_options %}"{{ o|escapejs }}"{% if not forloop.last %},{% endif %}{% endfor %} ];
+
+  $( function() {
+    $( "#autocomp_who" ).autocomplete({
+      source: who_options
+    });
+    $( "#autocomp_function" ).autocomplete({
+      source: function_options
+    });
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true
+    });
+  });
+</script>
+{% endblock %}

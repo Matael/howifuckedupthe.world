@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block extraHead %}
+{% endblock %}
+
+{% block content %}
+<div id="error_notif">
+  <h1>{% block error_title %}{% endblock %}</h1>
+  {% block error_body %}{% error_body %}
+
+  <p class="go_home"><a href="{% url 'index' %}">Understood! Get me home</a></p>
+</div>
+{% endblock %}
+

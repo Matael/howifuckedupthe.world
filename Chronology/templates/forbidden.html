@@ -1,0 +1,6 @@
+{% extends 'error.html' %}
+
+{% block error_title %}You can't do that !{% endblock %}
+{% block error_body %}
+<p>Your IP ({{ip.ip}}) has been blacklisted since {{ip.banned_since}}.</p>
+{% endblock %}

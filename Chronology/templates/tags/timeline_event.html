@@ -1,0 +1,22 @@
+<li>
+  <div class="direction-{% if n|divisibleby:2 %}l{% else %}r{% endif %}">
+    <div class="flag-wrapper">
+      <span class="flag">{{ event.name }}</span>
+      <span class="time-wrapper"><span class="time">{{ event.date }}</span></span>
+    </div>
+    <div class="desc">
+      {% if not n|divisibleby:2 %}
+      <a href="{% url 'event#vote' event.id 'up' %}"><i class="fa fa-arrow-up green"></i></a>
+      <a href="{% url 'event#vote' event.id 'down' %}"><i class="fa fa-arrow-down red"></i></a>
+      {% endif %}
+      by {{event.who}} as {{ event.function_at_the_time }}
+      {% if n|divisibleby:2 %}
+      <a href="{% url 'event#vote' event.id 'up' %}"><i class="fa fa-arrow-up green"></i></a>
+      <a href="{% url 'event#vote' event.id 'down' %}"><i class="fa fa-arrow-down red"></i></a>
+      {% endif %}
+    </div>
+    <div class="desc">{{ event.description|linebreaks }}</div>
+  </div>
+</li>
+
+{# vim: set ft=htmldjango: #}
