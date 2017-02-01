@@ -64,13 +64,10 @@ def event_vote(request, pk, vote_order):
     if ip.banned:
         return render(request, 'forbidden.html', {'ip': ip}, status=403)
 
-    # if the IP was already in DB, maybe it already voted
-    if not ip_created:
-        try:
-            vote = Vote.objects.get(event=e, voter=ip)
-        except ObjectDoesNotExist:
-            vote = None
-    vote = None
+    try:
+        vote = Vote.objects.get(event=e, voter=ip)
+    except ObjectDoesNotExist:
+        vote = None
 
     # do nothing if re-voting
     if vote and (vote.vote==vote_order):
