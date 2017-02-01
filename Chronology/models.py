@@ -78,6 +78,7 @@ class Event(models.Model):
     who = models.ForeignKey(Person)
     description = models.TextField(blank=True)
     function_at_the_time = models.ForeignKey(Function)
+    score = models.IntegerField(default=0, blank=True)
     reported = models.BooleanField(default=False)
     online = models.BooleanField(default=True)
     submitter = models.ForeignKey(IPAddress, blank=True, null=True)
@@ -106,6 +107,13 @@ class Event(models.Model):
         return (self.date_modified>nowM12)
     modified_recently.boolean = True
     modified_recently.short_description = 'Modified Recently'
+
+    def recompute_score(self):
+
+        votes_up = Vote.objects.filter(event=self, vote=Vote.UP).count()
+        votes_down = Vote.objects.filter(event=self, vote=Vote.DOWN).count()
+        self.score = votes_up-votes_down
+        self.save()
 
 
 class Vote(models.Model):

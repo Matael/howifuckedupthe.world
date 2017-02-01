@@ -71,10 +71,13 @@ def event_vote(request, pk, vote_order):
         except ObjectDoesNotExist:
             vote = None
 
-
     # do nothing if re-voting
     if vote and (vote.vote==vote_order):
         return redirect('index')
+
+    # change event's score
+    e.score += 1 if vote_order==Vote.UP else -1
+    e.save()
 
     if not vote:
         vote = Vote.objects.create(voter=ip, vote=vote_order, event=e)
