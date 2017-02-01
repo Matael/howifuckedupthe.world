@@ -48,6 +48,61 @@ a {
   color: rgb(40,40,40);
 }
 
+/* ===== Add event form ===== */
+
+.contribute_button, .event_button {
+  float: right;
+  color: rgb(255, 255, 255);
+  border: 0;
+  border-bottom: 3px solid rgba(139, 139, 139, 0.63) !important;
+  background-color: rgb(61, 61, 61);
+  padding: 10px;
+  margin: -5px 20px 0 0;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by
+                        Chrome and Opera */
+}
+
+.contribute_button:active {
+  border-top: 3px solid rgb(255, 255, 255);
+  border-bottom: 0;
+}
+
+.event_button:active {
+  border-top: 3px solid rgb(61, 61, 61) !important;
+  border-bottom: 0 !important;
+}
+
+#add_event_form {
+  background-color: rgb(61, 61, 61);
+  color: rgb(255, 255, 255);
+  box-shadow: 1px 1px #8b8b8b, 2px 2px #8b8b8b, 3px 3px #8b8b8b;
+  transform: translateX(-3px);
+  position:fixed;
+  padding: 10px;
+  left:50%;
+  top: 50%;
+  margin-left:-200px;
+  margin-top: -200px;
+  z-index: 25;
+  display: none;
+}
+
+#add_event_form input, #add_event_form textarea {
+  background-color: rgb(107, 107, 107);
+  border: 0;
+  color: rgb(255, 255, 255);
+}
+
+#add_event_form input {
+  float: right;
+}
+
 
 /* ===== Footer ===== */
 footer {

@@ -17,12 +17,12 @@
   </div>
 {% endif %}
 
-<div class="add_event_form">
-  <form action='{% url 'event#add' %}' method='POST'>
+<div id="add_event_form">
+  <form action='{% url 'event#add' %}' name="add_event_form" method='POST'>
     {% csrf_token %}
     {{form.as_p}}
 
-    <input type="submit" value="Add event !"/>
+    <input type="submit" class="event_button" value="Add event !"/>
   </form>
 </div>
 
