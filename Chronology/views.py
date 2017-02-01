@@ -70,6 +70,7 @@ def event_vote(request, pk, vote_order):
             vote = Vote.objects.get(event=e, voter=ip)
         except ObjectDoesNotExist:
             vote = None
+    vote = None
 
     # do nothing if re-voting
     if vote and (vote.vote==vote_order):
