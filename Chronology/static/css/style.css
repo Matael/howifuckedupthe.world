@@ -133,10 +133,9 @@ header {
 footer {
   color: rgb(100,100,100);
   font-size: 0.8em;
-  width: 30%;
   text-align: center;
   position: fixed;
-  left: 35%;
+  right: 1%;
   bottom: 0px;
 }
 
