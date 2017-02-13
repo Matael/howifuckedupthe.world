@@ -7,17 +7,10 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" type="text/css" href="{% static "css/font-awesome.min.css" %}">
 
-				<script>
-				function toggleDiv(id) {
-					var div = document.getElementById(id);
-					div.style.display = div.style.display == "block" ? "none" : "block";
-				}
-				</script>
         {% block extraHead %}{% endblock %}
 	</head>
 	<body>
   <header>
-		<input type="submit" onclick="toggleDiv('add_event_form')" class="contribute_button" value="Contribute!"/>
     <h1>How I Fucked Up The World</h1>
   </header>
 

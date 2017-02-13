@@ -48,16 +48,51 @@ a {
   color: rgb(40,40,40);
 }
 
+/* ===== Header ===== */
+
+header {
+	padding-left: 20px;
+}
+
 /* ===== Add event form ===== */
 
-.contribute_button, .event_button {
-  float: right;
+#add_event_form {
+  background-color: rgb(61, 61, 61);
+  color: rgb(255, 255, 255);
+  box-shadow: 3px 3px #8b8b8b;
+  transform: translateX(-3px);
+  position:fixed;
+  padding: 10px;
+  left:50%;
+  top: 50%;
+  margin-left:-200px;
+  margin-top: -200px;
+  z-index: 25;
+  display: none;
+	text-align: center;
+}
+
+#add_event_form h2 {
+	text-align: center;
+	border-bottom: 1px solid #FFF;
+	margin-top: -10px;
+}
+
+#add_event_form input, #add_event_form textarea {
+  background-color: rgb(107, 107, 107);
+  border: 0;
+  color: rgb(255, 255, 255);
+	min-width: 400px;
+	margin-bottom: 30px;
+	display: block;
+}
+
+.event_button {
   color: rgb(255, 255, 255);
   border: 0;
-  border-bottom: 3px solid rgba(139, 139, 139, 0.63) !important;
   background-color: rgb(61, 61, 61);
   padding: 10px;
-  margin: -5px 20px 0 0;
+	min-width: 400px;
   cursor: pointer;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -68,39 +103,17 @@ a {
                         Chrome and Opera */
 }
 
-.contribute_button:active {
-  border-top: 3px solid rgb(255, 255, 255);
-  border-bottom: 0;
-}
-
-.event_button:active {
-  border-top: 3px solid rgb(61, 61, 61) !important;
-  border-bottom: 0 !important;
-}
-
-#add_event_form {
+#contribute {
+	max-width: 100%;
+  color: rgb(255, 255, 255);
   background-color: rgb(61, 61, 61);
-  color: rgb(255, 255, 255);
-  box-shadow: 1px 1px #8b8b8b, 2px 2px #8b8b8b, 3px 3px #8b8b8b;
-  transform: translateX(-3px);
-  position:fixed;
-  padding: 10px;
-  left:50%;
-  top: 50%;
-  margin-left:-200px;
-  margin-top: -200px;
-  z-index: 25;
-  display: none;
-}
-
-#add_event_form input, #add_event_form textarea {
-  background-color: rgb(107, 107, 107);
-  border: 0;
-  color: rgb(255, 255, 255);
-}
-
-#add_event_form input {
-  float: right;
+	padding: 15px;
+	padding: 10px;
+	margin-bottom: 0;
+	font-size: 1.3em;
+	font-weight: bold;
+	vertical-align: middle;
+	text-align: center;
 }
 
 

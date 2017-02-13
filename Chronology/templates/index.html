@@ -6,6 +6,12 @@
   <link rel="stylesheet" type="text/css" href="{% static "css/timeline.css" %}">
   <link rel="stylesheet" type="text/css" href="{% static "css/admin_colors.css" %}">
   <link rel="stylesheet" type="text/css" href="{% static "css/jquery-ui.css" %}">
+	<script>
+		function toggleDiv(id) {
+			var div = document.getElementById(id);
+			div.style.display = div.style.display == "block" ? "none" : "block";
+		}
+	</script>
 {% endblock %}
 
 {% block content %}
@@ -18,24 +24,26 @@
 {% endif %}
 
 <div id="add_event_form">
+	<h2>Add an event</h2>
   <form action='{% url 'event#add' %}' name="add_event_form" method='POST'>
     {% csrf_token %}
-    {{form.as_p}}
 
-    <input type="submit" class="event_button" value="Add event !"/>
+		{{form.name}}
+		{{form.date}}
+
+		{{form.who}}
+		{{form.function}}
+
+		{{form.description}}
+
+    <input type="submit" class="event_button" value="Shoot!"/>
   </form>
 </div>
 
+<div id="contribute" onclick="toggleDiv('add_event_form')">Contribute!</div>
 
 <div id="timeline_container">
 <ul class="timeline">
-  {# <li> #}
-  {#   <div class="direction-r"> #}
-  {#     <div class="flag-wrapper"> #}
-  {#       <span class="flag"><a href="{% url 'event#add' %}"><i class="fa fa-plus" aria-hidden="true"></i> Add a event !</a></span> #}
-  {#     </div> #}
-  {#   </div> #}
-  {# </li> #}
   {% for e in events %}
     {% timeline_event e forloop.counter0 %}
   {% empty %}
