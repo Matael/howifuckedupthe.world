@@ -116,6 +116,18 @@ header {
 	text-align: center;
 }
 
+/* ===== Message ===== */
+
+#message {
+	width: 60%;
+	margin: auto;
+	margin-bottom: 40px;
+	margin-top: 40px;
+	padding: 15px;
+	line-height: 1.7;
+  box-shadow: 3px 3px #8b8b8b;
+	border: 1px solid rgb(161,161,161);
+}
 
 /* ===== Footer ===== */
 footer {
